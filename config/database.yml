@@ -1,0 +1,9 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  timeout: 5000
+  pool: 25
+  database: darebear_dev
+  username: root
+  password:
+  host: localhost
