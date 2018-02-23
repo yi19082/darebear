@@ -31,6 +31,7 @@
         <aside class="sidebar sidebar-left"> <%= render partial: "layouts/partials/leftsidebar" %> </aside>
         <!-- Content wraper -->
          <section class="main-content-wrapper">
+            <%= render partial: "layouts/partials/flash_messages" %>
             <!-- Main content view  -->
                 <%= yield %>
             <!-- Footer -->

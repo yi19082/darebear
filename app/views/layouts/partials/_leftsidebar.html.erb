@@ -1,47 +1,49 @@
+ <% if user_signed_in? %>
  <div class="sidebar-profile">
-                <div class="avatar">
-                    <img class="img-circle profile-image" src="<%= image_path('profile.jpg') %>" alt="profile">
-                    <i class="on border-dark animated bounceIn"></i>
+    <div class="avatar">
+        <img class="img-circle profile-image" src="<%= image_path('profile.jpg') %>" alt="profile">
+        <i class="on border-dark animated bounceIn"></i>
+    </div>
+    <div class="profile-body dropdown">
+          <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><h4><%= current_user.full_name %> <span class="caret"></span></h4></a>
+        <small class="title">Front-end Developer</small>
+        <ul class="dropdown-menu animated fadeInRight" role="menu">
+            <li class="profile-progress">
+                <h5>
+                    <span>80%</span>
+                    <small>Profile complete</small>
+                </h5>
+                <div class="progress progress-xs">
+                    <div class="progress-bar progress-bar-primary" style="width: 80%">
+                    </div>
                 </div>
-                <div class="profile-body dropdown">
-                      <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><h4>Sakib Alam <span class="caret"></span></h4></a>
-                    <small class="title">Front-end Developer</small>
-                    <ul class="dropdown-menu animated fadeInRight" role="menu">
-                        <li class="profile-progress">
-                            <h5>
-                                <span>80%</span>
-                                <small>Profile complete</small>
-                            </h5>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-primary" style="width: 80%">
-                                </div>
-                            </div>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <span class="icon"><i class="fa fa-user"></i>
-                                </span>My Account</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <span class="icon"><i class="fa fa-envelope"></i>
-                                </span>Messages</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <span class="icon"><i class="fa fa-cog"></i>
-                                </span>Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <span class="icon"><i class="fa fa-sign-out"></i>
-                                </span>Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <%= link_to edit_user_registration_path do %>
+                 <span class="icon"><i class="fa fa-user"></i> My Account</span>
+               <% end %>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    <span class="icon"><i class="fa fa-envelope"></i>
+                    </span>Messages</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    <span class="icon"><i class="fa fa-cog"></i>
+                    </span>Settings</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <%= link_to  destroy_user_session_path, method: :get do %>
+                             <span class="icon"><i class="fa fa-sign-out"></i> Logout</span>
+                           <% end %>
+            </li>
+        </ul>
+    </div>
+</div>
+<% end %>
             <nav>
                 <h5 class="sidebar-header">Navigation</h5>
                 <ul class="nav nav-pills nav-stacked">

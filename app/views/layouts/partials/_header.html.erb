@@ -1,10 +1,9 @@
-<!--logo start-->
-  <div class="brand">
-     <a href="/" class="logo">
-       <i class="icon-layers"></i>
-    <span>Dare</span>Bear</a>
- </div>
-<!--logo end-->
+
+<div class="brand">
+   <a href="/" class="logo">
+     <i class="icon-layers"></i>
+  <span>Dare</span>Bear</a>
+</div>
             <ul class="nav navbar-nav navbar-left">
                 <li class="toggle-navigation toggle-left">
                     <button class="sidebar-toggle" id="toggle-left">
@@ -23,13 +22,15 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+
+                <% if user_signed_in? %>
                 <li class="dropdown profile hidden-xs">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="meta">
                             <span class="avatar">
                                 <img src="<%= image_path('profile.jpg') %>" class="img-circle" alt="">
                             </span>
-                        <span class="text">Mike Adams</span>
+                        <span class="text"><%= current_user.full_name %></span>
                         <span class="caret"></span>
                         </span>
                     </a>
@@ -47,9 +48,9 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="javascript:void(0);">
-                                <span class="icon"><i class="fa fa-user"></i>
-                                </span>My Account</a>
+                            <%= link_to edit_user_registration_path do %>
+                             <span class="icon"><i class="fa fa-user"></i> My Account</span>
+                           <% end %>
                         </li>
                         <li>
                             <a href="javascript:void(0);">
@@ -63,9 +64,9 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="javascript:void(0);">
-                                <span class="icon"><i class="fa fa-sign-out"></i>
-                                </span>Logout</a>
+                           <%= link_to  destroy_user_session_path, method: :get do %>
+                             <span class="icon"><i class="fa fa-sign-out"></i> Logout</span>
+                           <% end %>
                         </li>
                     </ul>
                 </li>
@@ -79,4 +80,6 @@
                         <i class="fa fa-indent"></i>
                     </button>
                 </li>
+                <% end %>
             </ul>
+
