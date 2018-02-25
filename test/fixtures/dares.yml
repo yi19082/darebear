@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dare_giver: one
+  dare_recepient: one
+  upvote_count: 1
+  completed: false
+  description: MyText
+
+two:
+  dare_giver: two
+  dare_recepient: two
+  upvote_count: 1
+  completed: false
+  description: MyText
