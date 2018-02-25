@@ -1,7 +1,6 @@
- <% if user_signed_in? %>
- <div class="sidebar-profile">
-    <div class="avatar">
-        <img class="img-circle profile-image" src="<%= image_path('profile.jpg') %>" alt="profile">
+<div class="sidebar-profile">
+  <div class="avatar">
+    <img class="img-circle profile-image" src="<%= image_path('profile.jpg') %>" alt="profile">
         <i class="on border-dark animated bounceIn"></i>
     </div>
     <div class="profile-body dropdown">
@@ -43,7 +42,6 @@
         </ul>
     </div>
 </div>
-<% end %>
             <nav>
                 <h5 class="sidebar-header">Navigation</h5>
                 <ul class="nav nav-pills nav-stacked">
