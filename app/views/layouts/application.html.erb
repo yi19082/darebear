@@ -28,9 +28,12 @@
        <!-- Page wrapper -->
         <header id="header"> <%= render partial: "layouts/partials/header" %> </header>
         <!-- Left Sidebar Navigation -->
-        <aside class="sidebar sidebar-left"> <%= render partial: "layouts/partials/leftsidebar" %> </aside>
+        <% if user_signed_in? %>
+          <aside class="sidebar sidebar-left"> <%= render partial: "layouts/partials/leftsidebar" %> </aside>
+        <% end %>
         <!-- Content wraper -->
          <section class="main-content-wrapper">
+            <%= render partial: "layouts/partials/flash_messages" %>
             <!-- Main content view  -->
                 <%= yield %>
             <!-- Footer -->
