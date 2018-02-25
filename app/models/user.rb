@@ -9,4 +9,8 @@ class User < ApplicationRecord
   def full_name
     "#{first_name.try(:capitalize)} #{last_name.try(:capitalize)}"
   end
+
+  def pending_dares
+    dares_to_receive.pending
+  end
 end
