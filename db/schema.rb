@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223225550) do
+ActiveRecord::Schema.define(version: 20180223214027) do
 
   create_table "dares", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "dare_giver_id"
     t.integer  "dare_recepient_id"
     t.integer  "upvote_count"
     t.boolean  "completed"
+    t.boolean  "accepted"
     t.text     "description",       limit: 65535
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
