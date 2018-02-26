@@ -1,5 +1,4 @@
 class DaresController < ApplicationController
-
   def index
     @dares = current_user.dares_to_receive
   end
@@ -11,6 +10,13 @@ class DaresController < ApplicationController
   def feed
     @all_dares = Dare.order(created_at: :desc).take(10)
   end
+
+  def upvote
+    @dare=Dare.find(params[:id])
+    @dare.upvote_by(current_user)
+    redirect_to :back
+  end
+
 
   def create
     dare = Dare.new(dare_parameters)
