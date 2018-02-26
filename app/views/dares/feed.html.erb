@@ -1,3 +1,11 @@
+<div class="navbar-form navbar-left">
+	<%= form_tag search_dares_path, method: :get do %>
+	<%= text_field_tag :search, nil, placeholder:"Search for dares", class:"form-control" %>
+	<%= submit_tag "Search", class:"btn btn-default" %>
+	<% end %>
+</div>
+<br>
+<br>
 <br>homie this is the dares for EVERYONE <br>
 
 <% @all_dares.each do |all_dares| %>

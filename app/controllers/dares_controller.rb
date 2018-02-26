@@ -27,9 +27,21 @@ class DaresController < ApplicationController
     end
   end
 
+  def search
+    if params[:search].blank?
+      redirect_to :back
+      print "shit we blank"
+      @dares=Dare.all 
+    else
+      print "shit we aint blank"
+      @dares=Dare.search(params)
+    end
+  end
+
   private
 
   def dare_parameters
     params.require(:dare).permit(:dare_recepient_id, :description).merge(dare_giver: current_user)
   end
 end
+

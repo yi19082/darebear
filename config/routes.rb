@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   	member do 
   		put :like, to: 'dares#upvote'
   	end
+  	collection do 
+  		get :search
+  	end
   end
 
 
