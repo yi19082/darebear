@@ -8,6 +8,10 @@ class DaresController < ApplicationController
     @dare = Dare.new
   end
 
+  def feed
+    @all_dares = Dare.order(created_at: :desc).take(10)
+  end
+
   def create
     dare = Dare.new(dare_parameters)
     if dare.save

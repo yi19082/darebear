@@ -11,5 +11,5 @@ Rails.application.routes.draw do
 
   # view routes
   get '/dashboard' => 'dashboard#index'
-
+  get '/newsfeed' => 'dares#feed'
 end
