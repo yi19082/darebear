@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :dares_to_give, class_name: 'Dare', foreign_key: 'dare_giver_id'
   has_many :dares_to_receive, class_name: 'Dare', foreign_key: 'dare_recepient_id'
+
+  acts_as_voter
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable#, :confirmable
 

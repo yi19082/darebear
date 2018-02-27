@@ -2,7 +2,15 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :dares
+  resources :dares do
+  	member do
+  		put :like, to: 'dares#upvote'
+  	end
+  	collection do
+  		get :search
+  	end
+  end
+
 
   get 'dashboard/index'
 
@@ -11,5 +19,5 @@ Rails.application.routes.draw do
 
   # view routes
   get '/dashboard' => 'dashboard#index'
-
+  get '/newsfeed' => 'dares#feed'
 end

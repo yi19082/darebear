@@ -8,12 +8,33 @@ class DaresController < ApplicationController
     @dare = Dare.new
   end
 
+  def feed
+    @all_dares = Dare.order(created_at: :desc).take(10)
+  end
+
+  def upvote
+    @dare=Dare.find(params[:id])
+    @dare.upvote_by(current_user)
+    redirect_to :back
+  end
+
   def create
     dare = Dare.new(dare_parameters)
     if dare.save
       redirect_to :back, flash: {notice: 'Successfully created a dare.'}
     else
       redirect_to :back, flash: {danger: 'Unable to process your request.'}
+    end
+  end
+
+  def search
+    if params[:search].blank?
+      redirect_to :back
+      print "shit we blank"
+      @dares=Dare.all
+    else
+      print "shit we aint blank"
+      @dares=Dare.search(params)
     end
   end
 
