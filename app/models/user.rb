@@ -8,6 +8,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable#, :confirmable
 
+  def self.search(search_param)
+    User.where("email LIKE ? OR first_name LIKE ? OR last_name LIKE ?", "%#{search_param}%", "%#{search_param}%", "%#{search_param}%")
+  end
+
   def full_name
     "#{first_name.try(:capitalize)} #{last_name.try(:capitalize)}"
   end

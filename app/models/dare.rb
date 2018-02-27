@@ -5,13 +5,8 @@ class Dare < ApplicationRecord
   scope :pending, -> {where(accepted: nil)}
 
 
-  def self.search(params)
-
-  	dares=Dare.where("description like ?", "%#{params[:search]}") if params[:search].present?
-  	return dares
-  	print "we got data"
-  	print "my man", dares.size
-
+  def self.search(search_param)
+  	Dare.where("description LIKE ?", "%#{search_param}%")
   end
 end
 
