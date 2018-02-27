@@ -8,3 +8,7 @@
 <% end %>
 
 <p> my man </p>
+<% @dares.each do |dare| %>
+  <%= "#{dare.id}: #{dare.description}" %>
+  <br>
+<% end %>

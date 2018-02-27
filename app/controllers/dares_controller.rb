@@ -1,4 +1,5 @@
 class DaresController < ApplicationController
+
   def index
     @dares = current_user.dares_to_receive
   end
@@ -17,7 +18,6 @@ class DaresController < ApplicationController
     redirect_to :back
   end
 
-
   def create
     dare = Dare.new(dare_parameters)
     if dare.save
@@ -31,7 +31,7 @@ class DaresController < ApplicationController
     if params[:search].blank?
       redirect_to :back
       print "shit we blank"
-      @dares=Dare.all 
+      @dares=Dare.all
     else
       print "shit we aint blank"
       @dares=Dare.search(params)
@@ -44,4 +44,3 @@ class DaresController < ApplicationController
     params.require(:dare).permit(:dare_recepient_id, :description).merge(dare_giver: current_user)
   end
 end
-
