@@ -1,0 +1,4 @@
+<% @users.each do |user| %>
+  <%= "#{user.id}: #{user.full_name}: #{user.email}" %>
+  <%= link_to user.email, user %>  
+<% end %>

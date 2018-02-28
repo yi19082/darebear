@@ -1,4 +1,5 @@
 class DaresController < ApplicationController
+
   def index
     @dares = current_user.dares_to_receive
   end
@@ -30,11 +31,8 @@ class DaresController < ApplicationController
   def search
     if params[:search].blank?
       redirect_to :back
-      print "shit we blank"
-      @dares=Dare.all 
     else
-      print "shit we aint blank"
-      @dares=Dare.search(params)
+      @dares = Dare.search(params[:search])
     end
   end
 
