@@ -32,5 +32,5 @@ Rails.application.routes.draw do
   get '/users/:id/dareboard' => 'users#dareboard', as:'user_dareboard'
   get '/users/:id/completed' => 'users#completed', as:'user_completed'
   get '/users/:id/pending' => 'users#pending', as:'user_pending'
-  get '/users/:id/accepted' => 'users#pending', as:'user_accepted'
+  get '/users/:id/accepted' => 'users#accepted', as:'user_accepted'
 end

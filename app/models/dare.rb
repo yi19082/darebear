@@ -9,6 +9,14 @@ class Dare < ApplicationRecord
   	Dare.where("description LIKE ?", "%#{search_param}%")
   end
 
+  def dare_giver_name
+    User.find(dare_giver_id).full_name
+  end
+
+  def dare_receiver_name
+    User.find(dare_recepient_id).full_name
+  end
+
 
   def self.generate_dare
   	receiver= User.pluck(:id).sample

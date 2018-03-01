@@ -1,7 +1,3 @@
-<br>homie this is the completed dares for <br><%= @user.email %>
+<br>bro this is the completed dares for <br><%= @user.email %>
 
-<% @all_dares.each do |all_dares| %>
-  <%= "#{all_dares.id}: #{all_dares.description}" %>
-  <br>
-<% end %>
- 
+<%= render partial: "layouts/partials/feed" %>

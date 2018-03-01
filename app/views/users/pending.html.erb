@@ -1,7 +1,5 @@
 <br>homie this is the pending dares for <br><%= @user.email %>
 
-<% @all_dares.each do |all_dares| %>
-  <%= "#{all_dares.id}: #{all_dares.description}" %>
-  <br>
-<% end %>
+<%= render partial: "layouts/partials/feed" %>
  
+

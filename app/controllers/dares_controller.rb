@@ -1,7 +1,7 @@
 class DaresController < ApplicationController
 
   def index
-    @dares = current_user.dares_to_receive
+    @all_dares = current_user.dares_to_receive
   end
 
   def new

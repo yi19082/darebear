@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @all_dares = @user.dares_to_receive
   end
 
   def dareboard
