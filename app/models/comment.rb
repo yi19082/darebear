@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
 	belongs_to :dare
-	belongs_to :commenter, :class_name => "User"
+	belongs_to :user
 
 	def self.generate_comment
 	dare_id = Dare.pluck(:id).sample
@@ -8,7 +8,7 @@ class Comment < ApplicationRecord
   	commenter = User.pluck(:id).sample
   	user_id = User.pluck(:id).sample
   	Comment.create!(dare_id:     dare_id,
-               commenter_id:     commenter,
+               user_id:     commenter,
                description: text)
   	end
 end

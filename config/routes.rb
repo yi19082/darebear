@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   	end
   end
 
+  resources :dares do
+    resources :comments
+  end
 
   get 'dashboard/index'
 
@@ -33,4 +36,5 @@ Rails.application.routes.draw do
   get '/users/:id/completed' => 'users#completed', as:'user_completed'
   get '/users/:id/pending' => 'users#pending', as:'user_pending'
   get '/users/:id/accepted' => 'users#accepted', as:'user_accepted'
+
 end

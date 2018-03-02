@@ -1,7 +1,7 @@
 class Dare < ApplicationRecord
   belongs_to :dare_giver, class_name: 'User'
   belongs_to :dare_recepient, class_name: 'User'
-  has_many :comments, class_name: 'Comment', foreign_key: 'dare_id'
+  has_many :comments 
 
 
   acts_as_votable

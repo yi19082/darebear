@@ -10,27 +10,27 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @all_dares = @user.dares_to_receive
+    @dares = @user.dares_to_receive
   end
 
   def dareboard
     @user = User.find(params[:id])
-    @all_dares = @user.dares_to_receive
+    @dares = @user.dares_to_receive
   end
 
   def pending
     @user=get_user
-    @all_dares = @user.dares_to_receive.pending
+    @dares = @user.dares_to_receive.pending
   end
 
   def accepted
     @user=get_user
-    @all_dares = @user.dares_to_receive.accepted
+    @dares = @user.dares_to_receive.accepted
   end
 
   def completed
     @user=get_user
-    @all_dares = @user.dares_to_receive.completed
+    @dares = @user.dares_to_receive.completed
   end
 
 

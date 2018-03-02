@@ -1,4 +1,4 @@
-<% @all_dares.each do |all_dares| %>
+<% @dares.each do |dares| %>
 <div class="container">
     <div class="row">
         <div class="[ col-xs-10  col-sm-8 ]">
@@ -7,24 +7,25 @@
                     <img class="[ img-circle pull-left ]" src="https://orig00.deviantart.net/06cf/f/2016/191/e/8/ash_ketchum_render_by_tzblacktd-da9k0wb.png" class="img-circle" alt="Mouse0270" width="100" height="100" />
 
 
-                    <% if all_dares.dare_giver_id== current_user.id %>
+                    <% if dares.dare_giver_id== current_user.id %>
                         <h3>YOU</h3> 
                     <% else %>
-                        <%= "#{all_dares.dare_giver_name} " %> 
+                        <%= "#{dares.dare_giver_name} " %> 
                     <%end%>
                     dared          
 
-                    <% if all_dares.dare_recepient_id== current_user.id %>
+                    <% if dares.dare_recepient_id== current_user.id %>
                         you
                     <% else %>
-                        <%= "#{all_dares.dare_receiver_name} " %> 
+                        <%= "#{dares.dare_receiver_name} " %> 
                     <%end%>
-                    <h5><span>Dare created</span> - <span><%= "#{all_dares.created_at} " %></span> </h5>
+                    <h5><span>Dare created</span> - <span><%= "#{dares.created_at} " %></span> </h5>
                 </div>
                 <div class="panel-body">
-                    <p><%= "#{all_dares.description} " %></p>
+                    <p><%= "#{dares.description} " %></p>
                 </div>
-                 <%= button_to "Upvote Button ", like_dare_path(all_dares), method: :put, class: "btn btn-success btn-xs" %>  (<%= all_dares.get_upvotes.size %>) 
+                <%= render 'comments/form' %>
+
             </div>
         </div>
         

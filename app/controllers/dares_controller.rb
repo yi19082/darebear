@@ -1,7 +1,7 @@
 class DaresController < ApplicationController
 
   def index
-    @all_dares = current_user.dares_to_receive
+    @dares = current_user.dares_to_receive
   end
 
   def new
@@ -9,7 +9,7 @@ class DaresController < ApplicationController
   end
 
   def feed
-    @all_dares = Dare.order(created_at: :desc).take(10)
+    @dares = Dare.order(created_at: :desc).take(10)
   end
 
   def upvote
