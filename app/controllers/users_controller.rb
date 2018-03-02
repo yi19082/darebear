@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   end
 
   def dareboard
+    @comment=Comment.new
     @user = User.find(params[:id])
     @dares = @user.dares_to_receive
   end

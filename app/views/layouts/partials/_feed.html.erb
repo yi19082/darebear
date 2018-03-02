@@ -1,4 +1,4 @@
-<% @dares.each do |dares| %>
+<% @dares.each do |dare| %>
 <div class="container">
     <div class="row">
         <div class="[ col-xs-10  col-sm-8 ]">
@@ -7,28 +7,36 @@
                     <img class="[ img-circle pull-left ]" src="https://orig00.deviantart.net/06cf/f/2016/191/e/8/ash_ketchum_render_by_tzblacktd-da9k0wb.png" class="img-circle" alt="Mouse0270" width="100" height="100" />
 
 
-                    <% if dares.dare_giver_id== current_user.id %>
+                    <% if dare.dare_giver_id== current_user.id %>
                         <h3>YOU</h3> 
                     <% else %>
-                        <%= "#{dares.dare_giver_name} " %> 
+                        <%= "#{dare.dare_giver_name} " %> 
                     <%end%>
                     dared          
 
-                    <% if dares.dare_recepient_id== current_user.id %>
+                    <% if dare.dare_recepient_id== current_user.id %>
                         you
                     <% else %>
-                        <%= "#{dares.dare_receiver_name} " %> 
+                        <%= "#{dare.dare_receiver_name} " %> 
                     <%end%>
-                    <h5><span>Dare created</span> - <span><%= "#{dares.created_at} " %></span> </h5>
+                    <h5><span>Dare created</span> - <span><%= "#{dare.created_at} " %></span> </h5>
                 </div>
                 <div class="panel-body">
-                    <p><%= "#{dares.description} " %></p>
+                    <p><%= "#{dare.description} " %></p>
                 </div>
-                <%= render 'comments/form' %>
+    <div class="panel-body">
+      <%= form_for dare_comments_path(dare) do |f| %>
 
-            </div>
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <%= f.label 'Leave a comment' %>
+          </div>
+          <div class="col-sm-6">
+            <%= f.text_area :description%>
+          </div>
         </div>
-        
+            </div>
+        <% end %>
         
     </div>
 </div>

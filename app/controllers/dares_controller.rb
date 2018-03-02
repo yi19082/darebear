@@ -1,6 +1,7 @@
 class DaresController < ApplicationController
 
   def index
+    @comment= Comment.new
     @dares = current_user.dares_to_receive
   end
 
