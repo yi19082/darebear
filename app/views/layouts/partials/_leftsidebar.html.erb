@@ -58,27 +58,27 @@
                     </li>
                     <li>
                       <%= link_to dares_path do %>
-                        <span class="icon"><i class="fa fa-sign-out"></i> All Dares</span>
+                        <span class="icon"><i class="fa fa-sign-out"></i> My Dares</span>\
                       <% end %>
                     </li>
                     <li class="<%= 'active' if controller?('dashboard') && action?('index') %>">
-                        <a href="#">
+                        <%= link_to pending_path do %>
                             <i class="fa  fa-fw fa-tachometer"></i> Pending Dares
-                        </a>
+                        <% end %>
                     </li>
                     <li class="nav-dropdown <%= 'active open' if controller?('ui')%>">
-                        <a href="#">
+                        <%= link_to accepted_path do %>
                             <i class="fa fa-fw fa-cogs"></i> Accepted Dares
-                        </a>
+                        <% end %>
                     </li>
                     <li class="nav-dropdown <%= 'active open' if controller?('ui')%>">
-                        <a href="#">
+                        <%= link_to completed_path do %>
                             <i class="fa fa-fw fa-cogs"></i> Completed Dares
-                        </a>
+                        <% end%>
                     </li>
                 </ul>
             </nav>
-              <h5 class="sidebar-header">Account Settings</h5>
+              <h5 class="sidebar-header">Original home page</h5>
             <div class="setting-list">
                 <div class="row">
                     <div class="col-xs-8">

@@ -3,6 +3,8 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
+
+<html class="">
 <!--<![endif]-->
 
 <head>
@@ -30,7 +32,12 @@
         <header id="header"> <%= render partial: "layouts/partials/header" %> </header>
         <!-- Left Sidebar Navigation -->
         <% if user_signed_in? %>
-          <aside class="sidebar sidebar-left"> <%= render partial: "layouts/partials/leftsidebar" %> </aside>
+          <%if params[:id]%>
+
+          <aside class="sidebar sidebar-left"> <%= render partial: "layouts/partials/leftsidebaruser" %> </aside>
+          <%else%>
+            <aside class="sidebar sidebar-left"> <%= render partial: "layouts/partials/leftsidebar" %> </aside>
+           <% end %>
         <% end %>
         <!-- Content wraper -->
          <section class="main-content-wrapper">

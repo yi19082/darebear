@@ -1,6 +1,7 @@
 class DaresController < ApplicationController
 
   def index
+    @comment = Comment.new
     @dares = current_user.dares_to_receive
   end
 
@@ -8,8 +9,9 @@ class DaresController < ApplicationController
     @dare = Dare.new
   end
 
-  def feed
-    @all_dares = Dare.order(created_at: :desc).take(10)
+  def recent
+    @comment = Comment.new
+    @dares = Dare.order(created_at: :desc).take(10)
   end
 
   def upvote
@@ -30,11 +32,8 @@ class DaresController < ApplicationController
   def search
     if params[:search].blank?
       redirect_to :back
-      print "shit we blank"
-      @dares=Dare.all
     else
-      print "shit we aint blank"
-      @dares=Dare.search(params)
+      @dares = Dare.search(params[:search])
     end
   end
 

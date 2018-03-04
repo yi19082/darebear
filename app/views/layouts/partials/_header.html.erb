@@ -16,9 +16,11 @@
                     </button>
                 </li>
                <li class="hidden-xs hidden-sm">
-                    <input type="text" class="search" placeholder="Search project...">
-                    <button type="submit" class="btn btn-sm btn-search"><i class="fa fa-search"></i>
-                    </button>
+                    <%= form_tag(users_search_path, method: :get) do %>
+                        <%= text_field_tag :search, params[:search], class: "search", placeholder: "Search users..." %>
+                        <button type="submit" class="btn btn-sm btn-search"><i class="fa fa-search"></i></button>
+                    <% end %>
+
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
