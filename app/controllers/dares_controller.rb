@@ -1,7 +1,7 @@
 class DaresController < ApplicationController
 
   def index
-    @comment= Comment.new
+    @comment = Comment.new
     @dares = current_user.dares_to_receive
   end
 
@@ -9,7 +9,8 @@ class DaresController < ApplicationController
     @dare = Dare.new
   end
 
-  def feed
+  def recent
+    @comment = Comment.new
     @dares = Dare.order(created_at: :desc).take(10)
   end
 

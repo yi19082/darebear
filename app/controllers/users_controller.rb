@@ -20,16 +20,19 @@ class UsersController < ApplicationController
   end
 
   def pending
+    @comment = Comment.new
     @user=get_user
     @dares = @user.dares_to_receive.pending
   end
 
   def accepted
+    @comment = Comment.new
     @user=get_user
     @dares = @user.dares_to_receive.accepted
   end
 
   def completed
+    @comment = Comment.new
     @user=get_user
     @dares = @user.dares_to_receive.completed
   end

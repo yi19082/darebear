@@ -1,7 +1,7 @@
 class Dare < ApplicationRecord
   belongs_to :dare_giver, class_name: 'User'
   belongs_to :dare_recepient, class_name: 'User'
-  has_many :comments 
+  has_many :comments
 
 
   acts_as_votable
@@ -11,15 +11,6 @@ class Dare < ApplicationRecord
   def self.search(search_param)
   	Dare.where("description LIKE ?", "%#{search_param}%")
   end
-
-  def dare_giver_name
-    User.find(dare_giver_id).full_name
-  end
-
-  def dare_receiver_name
-    User.find(dare_recepient_id).full_name
-  end
-
 
   def self.generate_dare
   	receiver= User.pluck(:id).sample
