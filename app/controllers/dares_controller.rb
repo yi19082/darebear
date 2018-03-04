@@ -20,7 +20,6 @@ class DaresController < ApplicationController
     redirect_to :back
   end
 
-
   def create
     dare = Dare.new(dare_parameters)
     if dare.save
@@ -44,4 +43,3 @@ class DaresController < ApplicationController
     params.require(:dare).permit(:dare_recepient_id, :description).merge(dare_giver: current_user)
   end
 end
-
